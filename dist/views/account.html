@@ -1,0 +1,53 @@
+
+<% include commonHeader.html %>
+
+<div style='width:300px;margin:auto;margin-top:14%;'>
+    <div id='loginBox' class="hd">
+        <p style='color:red'><%= failMessage %></p>
+        <form action='/submit_to_login' method="post" enctype="application/x-www-form-urlencoded">
+            <p class='inputBox'><input type='text' class='input' placeholder="请输入账号" name='user'></p>
+            <p class='inputBox'><input type='password' class='input' placeholder="请输入密码" name='pwd'></p>
+            <p style='text-align:center;'>
+                <Button class='submitBtn'>登 录</Button>
+            </p>
+        </form>
+        <p style='text-align:right;'><a href='#register' style='font-size:10px;'>还无账号？去注册</a></p>
+    </div>
+    <div id='registerBox' class="hd">
+        <p style='color:red'><%= failMessageRegister %></p>
+        <form action='/submit_to_register' method="post" enctype="application/x-www-form-urlencoded">
+            <p class='inputBox'><input type='text' class='input' placeholder="请输入账号" name='user'></p>
+            <p class='inputBox'><input type='password' class='input' placeholder="请输入密码" name='pwd'></p>
+            <p class='inputBox'><input type='password' class='input' placeholder="请再次确认密码" name='confirmPwd'></p>
+            <p style='text-align:center;'>
+                <Button class='submitBtn'>注 册</Button>
+            </p>
+        </form>
+        <p style='text-align:right;'><a href='#login' style='font-size:10px;'>已有账号？去登录</a></p>
+    </div>
+</div>
+<% include commonFooter.html %>
+<script>
+    (function () {
+        $(function () {
+            var $login = $('#loginBox'),
+                $register = $('#registerBox');
+
+            function confirmHash(){
+                var hash = location.hash;
+                if(hash=='#login' || !hash){
+                    $login.removeClass('hd');
+                    $register.addClass('hd')
+                }else{
+                    $login.addClass('hd');
+                    $register.removeClass('hd')
+                }
+            }
+            
+            confirmHash();
+
+            window.onhashchange = confirmHash
+
+        })
+    })()
+</script>
