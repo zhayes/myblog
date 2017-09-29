@@ -1,0 +1,7 @@
+.gitignore;
+
+#忽略 vscode 记录文件;
+.vscode;
+
+#忽略 nodejs 模块文件夹;
+node_modules
