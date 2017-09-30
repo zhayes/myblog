@@ -19,10 +19,10 @@
         <header class="head" style="box-shadow: 0 6px 10px 0px #ccc;margin-bottom: 20px;">
             <nav class="head-nav" style='max-width:1200px;margin:auto;'>
                 <a href='/' style='display:inline-block;margin-top:10px;'><img width=60 src='<%= 'commentsSelfProfile/' + ( Math.floor(Math.random()*20)+35 ) + '.png' %>'></a>
-                <img src="images/ico-navTrigger.png" alt="" class="nav-img">hook
+                <img src="images/ico-navTrigger.png" alt="" class="nav-img">
                 <ul class="show-ul" style='float:right'>
                     <% if(!user){ %>
-                        <li><a href="/account.html" data-content="登录注册">登录注册</a></li>
+                        <li><a href="/account.html" data-content="登录注册">登录注册Hook</a></li>
                         <% } %>
                             <% if(user){ %>
                                 <li><a href="/logOut" data-content="退出">退出</a></li>
