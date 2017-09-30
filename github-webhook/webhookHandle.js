@@ -22,6 +22,8 @@ function run_cmd() {
  
 http.createServer(function (req, res) {
     console.log(req);
+    res.write('ok');
+    res.end();
 }).listen(3389,function(){
     console.log('webhook is running on 3389...');
 })
