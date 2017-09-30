@@ -10,7 +10,7 @@ function run_cmd() {
             return;
         }
         console.log(stdout);
-        exec('pm2 restart all',function(err,stdout,stderr){
+        exec('pm2 restart www',function(err,stdout,stderr){
             if(err){
                 consol.log(err)
                 return;
