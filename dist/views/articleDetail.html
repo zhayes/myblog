@@ -6,7 +6,7 @@
     <h3>
         <%= article.title %>
     </h3>
-    <p><span style='float:right'><%= moment(article.time).format('YYYY/MM/DD hh:mm:ss') %></span><span style='clear:both;display:block'></span></p>
+    <p><span style='float:right'><%= moment(article.time).format('YYYY/MM/DD HH:mm:ss') %></span><span style='clear:both;display:block'></span></p>
     <article>
         <%- article.contentHtml %>
     </article>

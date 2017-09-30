@@ -1,11 +1,11 @@
 <% include commonHeader.html %>
         <% for(var index=0; index< articleList.length; index++ ){ %>
             <a class='articleListBox' href="/articleDetail.html?id=<%= articleList[index]._id %>" style='display:block;overflow:hidden;color:#fff'>
-                <span class='indexListTime' style='float:right'><%= moment(articleList[index].time).format('YYYY/MM/DD hh:mm:ss') %></span>
+                <span class='indexListTime' style='float:right'><%= moment(articleList[index].time).format('YYYY/MM/DD HH:mm:ss') %></span>
                 <h3><%= articleList[index].title %></h3>
                 <p class='articleSwrap'>
                     <%= articleList[index].contentTxt %>
                 </p>
             </a>
             <% } %>
-<% include commonFooter.html %>          
+<% include commonFooter.html %>           
