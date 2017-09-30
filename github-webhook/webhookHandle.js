@@ -21,9 +21,10 @@ function run_cmd() {
 }
  
 http.createServer(function (req, res) {
+    console.log('webhook is running on 3389');
   handler(req, res, function (err) {
     res.statusCode = 404
-    res.end('no such location')
+    res.end('no such location');
   })
 }).listen(3389)
  
