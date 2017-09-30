@@ -1,5 +1,3 @@
-
- 
 var http = require('http')
 var createHandler = require('github-webhook-handler');
 var handler = createHandler({ path: '/reviewpushcode', secret: 'zhablog' })
