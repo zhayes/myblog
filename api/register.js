@@ -24,17 +24,16 @@ const api = [
                 pwd = req.body.pwd.trim(),
                 confirmPwd = req.body.confirmPwd.trim();
 
-            global.app.locals.failMessage = '';
+            req.session.failMessage = '';
 
             if(!pwd || !user){
-                global.app.locals.failMessageRegister= "请输入完整的注册账号密码";
+                req.session.failMessageRegister = "请输入完整的注册账号密码";
                 res.redirect('/account.html#regiseter')
                 return;
             }
 
             if (pwd != confirmPwd) {
-                global.app.locals.failMessageRegister= "两次密码不一致";
-
+                req.session.failMessageRegister= "两次密码不一致";
                 res.redirect('/account.html#register')
                 return;
             }
@@ -45,7 +44,7 @@ const api = [
                 time: Date.now()
             }, function (err, result) {
                 if (err) {
-                    global.app.locals.failMessageRegister= "注册失败";
+                    req.session.failMessageRegister= "注册失败";
                     res.redirect('/account.html#register')
                     return;
                 }

@@ -18,13 +18,13 @@ const api = [
         path: '/submit_to_login',
         description: '登陆接口',
         callback: function (req, res) {
-          
+
             req.session.isLogin = '0';//默认未登录；
             let responseText = '';
-           global.app.failMessageRegister = '';
-            if(!req.body.user.trim() || !req.body.pwd.trim()){
-                global.app.locals.failMessage = '请输入完整的账号密码';
-                res.render('account.html')
+            req.session.failMessageRegister = '';
+            if (!req.body.user.trim() || !req.body.pwd.trim()) {
+                req.session.failMessage = '请输入完整的账号密码';
+                res.redirect('/account.html')
                 return;
             }
 
@@ -33,11 +33,11 @@ const api = [
                 password: md5(req.body.pwd.trim())
             }, function (err, result) {
                 if (err || !result) {
-                    global.app.locals.failMessage = '账号或密码错误';
-                    res.render('account.html')
+                    req.session.failMessage = '账号或密码错误';
+                    res.redirect('/account.html')
                 } else if (result) {
                     req.session.isLogin = '1';
-		    req.session.userName = req.body.user.trim();
+                    req.session.userName = req.body.user.trim();
                     res.redirect('/')
                 }
 
