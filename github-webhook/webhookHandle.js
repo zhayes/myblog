@@ -1,6 +1,6 @@
 var http = require('http');
-var createHandler = require('github-webhook-handler');
-var handler = createHandler({ path: '/reviewpushcode', secret: 'zhablog' });
+
+//var handler = createHandler({ path: '/reviewpushcode', secret: 'zhablog' });
 var exec = require('child_process').exec;
 
 function run_cmd() {
@@ -21,20 +21,8 @@ function run_cmd() {
 }
  
 http.createServer(function (req, res) {
-    console.log('webhook is running on 3389');
-  handler(req, res, function (err) {
-    res.statusCode = 404
-    res.end('no such location');
-  })
-}).listen(3389)
- 
-handler.on('error', function (err) {
-  console.error('Error:', err.message)
+    console.log(req);
+}).listen(3389,function(){
+    console.log('webhook is running on 3389...');
 })
  
-handler.on('push', function (event) {
-    console.log('Received a push event for %s to %s',
-    event.payload.repository.name,
-    event.payload.ref);
-    run_cmd();
-})
