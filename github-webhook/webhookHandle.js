@@ -1,6 +1,6 @@
 var http = require('http');
 
-//var handler = createHandler({ path: '/reviewpushcode', secret: 'zhablog' });
+//var handler = ({ path: '/reviewpushcode', secret: 'zhablog' });
 var exec = require('child_process').exec;
 
 function run_cmd() {
