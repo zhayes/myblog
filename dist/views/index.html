@@ -4,7 +4,7 @@
                 <span class='indexListTime' style='float:right'><%= moment(articleList[index].time).format('YYYY/MM/DD HH:mm:ss') %></span>
                 <h3><%= articleList[index].title %></h3>
                 <p class='articleSwrap'>
-                    <%= articleList[index].contentTxt.substr(0,500) %> ... <a>点击查看全文</a>
+                    <%= articleList[index].contentTxt.substr(0,500) %> ... <span style='color:#11aefb'>点击查看全文</span>
                 </p>
             </a>
             <% } %>
