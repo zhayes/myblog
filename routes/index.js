@@ -6,8 +6,10 @@ const getArticleList = require('../bao').getArticleList;
 
 
 router.get('/', function(req, res) {
-  console.log(res.render)
-  getArticleList(global.db, function (err, result) {
+  
+  var $page = req.body.page ? req.body.page : 1;
+
+  getArticleList(global.db,{page:$page}, function (err, result) {
     if (err) {
       console.log(err)
       res.send({
