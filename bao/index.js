@@ -2,9 +2,10 @@
 
 module.exports = {
     //获取文章列表数据；
-    getArticleList: function (db, data, callback) {
+    getArticleList: function (db, callback) {
         const collection = db.collection('article');
         collection.find().sort({ time: -1 }).toArray(function (err, result) {
+            console.log(callback);
             callback(err, result);
         })
     },

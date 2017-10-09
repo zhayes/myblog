@@ -12,7 +12,7 @@ const api = [
 
             var $page = req.body.page ? req.body.page : 1;
 
-            getArticleList(global.db, { page: $page }, function (err, result) {
+            getArticleList(global.db,function (err, result) {
                 if (err) {
                     console.log(err)
                     res.send({
