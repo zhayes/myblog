@@ -7,11 +7,9 @@ const api = [
             page: ''
         },
         path: '/get_article_list',
-        description: '获取文章列表',
+        description: '获取文章列表 (原ajax请求接口)',
         callback: function (req, res) {
-
             var $page = req.body.page ? req.body.page : 1;
-
             getArticleList(global.db,{
                 page:$page
             }, function (err, result) {
