@@ -4,7 +4,7 @@
                 <span class='indexListTime' style='float:right'><%= moment(articleList[index].time).format('YYYY/MM/DD HH:mm:ss') %></span>
                 <h3><%= articleList[index].title %></h3>
                 <p class='articleSwrap'>
-                    <%= articleList[index].contentTxt %>
+                    <%= articleList[index].contentTxt.substr(0,200) %> ...
                 </p>
             </a>
             <% } %>
