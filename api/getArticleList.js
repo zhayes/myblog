@@ -9,9 +9,8 @@ const api = [
         path: '/get_article_list',
         description: '获取文章列表',
         callback: function (req, res) {
-
+	console.log(req.body,'开始请求')
             var $page = req.body.page ? req.body.page : 1;
-
             getArticleList(global.db,{
                 page:$page
             }, function (err, result) {
