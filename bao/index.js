@@ -4,7 +4,7 @@ module.exports = {
     //获取文章列表数据；
     getArticleList: function (db, data, callback) {
         const collection = db.collection('article');
-        collection.find().sort({ time: -1 }).skip((data.page - 1)*10).limit(10).toArray(function (err, result) {
+        collection.find().sort({ time: -1 }).limit(10).skip((data.page - 1)*10).toArray(function (err, result) {
             callback(err, result);
         })
     },
