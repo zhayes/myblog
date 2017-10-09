@@ -10,9 +10,9 @@ const api = [
         description: '获取文章列表',
         callback: function (req, res) {
 
-            var page = req.body.page ? req.body.page : 1;
+            var $page = req.body.page ? req.body.page : 1;
 
-            getArticleList(global.db, { page: page }, function (err, result) {
+            getArticleList(global.db, { page: $page }, function (err, result) {
                 if (err) {
                     console.log(err)
                     res.send({
