@@ -2,9 +2,9 @@
 
 module.exports = {
     //获取文章列表数据；
-    getArticleList: function (db, callback) {
+    getArticleList: function (db, data, callback) {
         const collection = db.collection('article');
-        collection.find().sort({time:-1}).toArray(function (err, result) {
+        collection.find().sort({ time: -1 }).skip((data.page - 1)*10).limit(10).toArray(function (err, result) {
             callback(err, result);
         })
     },
@@ -45,16 +45,16 @@ module.exports = {
     //获取账号数据
     getUserData: function (db, data, callback) {
         const collection = db.collection('account');
-        collection.findOne(data,function (err, result) {
-            callback(err,result);
+        collection.findOne(data, function (err, result) {
+            callback(err, result);
         })
     },
 
     //注册账号
-    registerAccount: function(db, data, callback){
+    registerAccount: function (db, data, callback) {
         const collection = db.collection('account');
-        collection.insert(data,function (err, result) {
-            callback(err,result);
+        collection.insert(data, function (err, result) {
+            callback(err, result);
         })
     }
 }
