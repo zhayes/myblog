@@ -4,7 +4,7 @@ const api = [
     {
         method: 'get',
         body: {
-            id: ''
+            page: ''
         },
         path: '/get_article_list',
         description: '获取文章列表',
