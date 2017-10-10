@@ -12,7 +12,7 @@ function run_cmd() {
         console.log(stdout);
         exec('cd /home/myblog & webpack', function (err, stdout, stderr) {//进行webpack编译
             if (err) {
-                consol.log(err)
+                console.log(err)
                 return;
             }
             console.log(stdout);
