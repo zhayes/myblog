@@ -41,7 +41,7 @@ router.get('/', function (req, res) {
 
   }).then(function (data) {
     global.app.locals.title = '博客';
-	console.log(data.totalPage,$page);
+
     res.render('index', {
       articleList: data.result,
       currentPage: $page,
