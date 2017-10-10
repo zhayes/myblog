@@ -9,7 +9,8 @@ function postArticle() {
         type: 'post',
         data: {
             title: document.getElementById('articleTitle').value,
-            contentHtml: editor.txt.html()
+            contentHtml: editor.txt.html(),
+            contentTxt: editor.txt.text()
         },
         success: function (res) {
             alert(res.message);
