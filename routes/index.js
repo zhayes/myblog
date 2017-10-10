@@ -36,11 +36,10 @@ router.get('/', function (req, res) {
   }
 
   splicePageData.then(function (result) {
-
-    totalPageData(result);
+   
+    return totalPageData(result);
 
   }).then(function (data) {
-
     global.app.locals.title = '博客';
 
     res.render('index', {
