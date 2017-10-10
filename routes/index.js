@@ -7,7 +7,8 @@ const getArticleList = require('../bao').getArticleList;
 
 router.get('/', function (req, res) {
 
-  var $page = req.query.page ? req.query.page : 1;
+  var $page = req.query.page ? req.query.page : 1,
+      $viewNum = req.query.viewNum ? req.query.viewNum : 5;
 
   var splicePageData = new Promise(function (resolve, reject) {//查询 分页数据；
     getArticleList(global.db, { page: $page }, function (err, result) {
@@ -48,6 +49,7 @@ router.get('/', function (req, res) {
     res.render('index', {
       articleList: data.result,
       currentPage: $page,
+      viewNum: $viewNum,
       totalPage: data.totalPage
     })
 
