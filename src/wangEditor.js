@@ -3,7 +3,7 @@ import { initWangEditor } from './public/js/util.js';
 
 var editor = initWangEditor({ barSwrap: '#wangEditorBar', contentSwrap: '#wangEditorBox' });
 function postArticle() {
-    
+    alert(1)
     $.ajax({
         url: '/save_article',
         dataType: 'json',
