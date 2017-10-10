@@ -1,6 +1,6 @@
 const wangEditor = require('wangeditor');
 import { initWangEditor } from './public/js/util.js';
-alert('dfd')
+
 var editor = initWangEditor({ barSwrap: '#wangEditorBar', contentSwrap: '#wangEditorBox' });
 function postArticle() {
     $.ajax({
@@ -9,8 +9,7 @@ function postArticle() {
         type: 'post',
         data: {
             title: document.getElementById('articleTitle').value,
-            contentHtml: editor.txt.html(),
-            contentTxt: editor.txt.text()
+            contentHtml: editor.txt.html()
         },
         success: function (res) {
             alert(res.message);
