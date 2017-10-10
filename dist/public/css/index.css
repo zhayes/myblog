@@ -67,11 +67,6 @@ figure{
 	overflow:auto;
 }
 
-ul.panigation:after{
-	content: '';
-	display: block;
-	clear: both;
-}
 
 ul.panigation{
 	margin: auto;
@@ -79,7 +74,8 @@ ul.panigation{
 }
 
 ul.panigation li{
-	float:left;
+	display: inline-block;
+	margin: 10px;
 }
 
 ul.panigation li a{
