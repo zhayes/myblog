@@ -12,11 +12,9 @@
                 <ul class='panigation'>
                     <% for(var j=0; j< totalPage; j++ ){ %>
                     <li>
-                        <% if(currentPage==j) { %>
-                        <a href=<%=` /?page=${j+1}` class='active' %>>
-                        <% }else{ %>
-                        <a href=<%=` /?page=${j+1}` >>
-                        <% } %>
+                        <a 
+                            href=<%=` /?page=${j+1}` %>
+                        >
                         <%= j+1 %>
                         </a>
                     </li>
