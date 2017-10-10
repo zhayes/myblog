@@ -27,7 +27,7 @@ router.get('/', function (req, res) {
         collection.find().toArray(function (err, result) {
           if (err) return reject(err);
           resolve({
-            totalPage: (result.length % 10)==0 ? result.length/10 : (result.length/10)+1,
+            totalPage: (result.length % 10)==0 ? result.length/10 : (Math.floor(result.length/10))+1,
             result: data
           });
         })
@@ -41,7 +41,7 @@ router.get('/', function (req, res) {
 
   }).then(function (data) {
     global.app.locals.title = '博客';
-
+	console.log(data.totalPage,$page);
     res.render('index', {
       articleList: data.result,
       currentPage: $page,
