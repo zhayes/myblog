@@ -7,5 +7,16 @@
                     <%= articleList[index].contentTxt.substr(0,500) %> ... <span style='color:#11aefb'>点击查看全文</span>
                 </p>
             </a>
-            <% } %>
+        <% } %>
+        <div>
+            <ul class='panigation'>
+                <% for(var j=0; j<totalPage; j++){ %>
+                <li>
+                    <a href= <%=`/?page${j+1}`> >
+                        <%= j+1 %>
+                    </a>
+                </li>
+                <% } %>
+            </ul>
+        </div>
 <% include commonFooter.html %>           

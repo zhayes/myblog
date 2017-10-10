@@ -67,6 +67,31 @@ figure{
 	overflow:auto;
 }
 
+ul.panigation{
+	text-align: center;
+}
+
+ul.panigation li{
+	float:left;
+}
+
+ul.panigation li a{
+	display: inline-block;
+	padding: 6px;
+	color: #fff;
+	font-size: 12px;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius:2px;
+	-ms-border-radius:2px;
+	-o-border-radius:2px;
+}
+
+ul.panigation li a:hover{
+	background-color: #11aefb;
+}
+
 @media screen and (min-width:769px){
 
 	.nav-img{
