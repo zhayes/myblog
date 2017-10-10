@@ -10,14 +10,13 @@
         <% } %>
             <div>
                 <ul class='panigation'>
-                    <%= currentPage %>
                     <% for(var j=0; j< totalPage; j++ ){ %>
                     <li>
-                        <a 
-                            href=<%=` /?page=${j+1}` %>
-                        >
-                        <%= j+1 %>
-                        </a>
+                        <% if( currentPage==j ){ %>
+                            <a href=<%=` /?page=${j+1}` %>><%= j+1 %></a>
+                        <% }else{ %>
+                            <a class='active' href=<%=` /?page=${j+1}` %>><%= j+1 %></a>
+                        <% } %>
                     </li>
                     <% } %>
                 </ul>
