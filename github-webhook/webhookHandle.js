@@ -19,7 +19,7 @@ function run_cmd() {
 
             exec('pm2 restart www', function (err, stdout, stderr) {//重启网站服务器
                 if (err) {
-                    consol.log(err)
+                    console.log(err)
                     return;
                 }
                 console.log(stdout);
