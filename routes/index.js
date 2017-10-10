@@ -24,12 +24,16 @@ router.get('/', function (req, res) {
       new Promise(function (resolve, reject) {
         const collection = db.collection('article');
 
-        var total = collection.find({}).count();
+        collection.find().count(function (err, total) {
+          if(err){
+            return reject(err);
+          }
 
-        resolve({
-          totalPage: (total % 10) == 0 ? total / 10 : (Math.floor(total / 10)) + 1,
-          result: data
-        });
+          resolve({
+            totalPage: (total % 10) == 0 ? total / 10 : (Math.floor(total / 10)) + 1,
+            result: data
+          });
+        })
       })
     )
   }
