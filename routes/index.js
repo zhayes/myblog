@@ -25,9 +25,9 @@ router.get('/', function (req, res) {
         const collection = db.collection('article');
 
         var total = collection.find().count();
-        
+
         resolve({
-          totalPage: (result.length % 10) == 0 ? total / 10 : (Math.floor(total / 10)) + 1,
+          totalPage: (total % 10) == 0 ? total / 10 : (Math.floor(total / 10)) + 1,
           result: data
         });
       })
