@@ -1,6 +1,6 @@
 const wangEditor = require('wangeditor');
 import { initWangEditor } from './public/js/util.js';
-
+alert('dfd')
 var editor = initWangEditor({ barSwrap: '#wangEditorBar', contentSwrap: '#wangEditorBox' });
 function postArticle() {
     $.ajax({
