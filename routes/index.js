@@ -5,25 +5,59 @@ const getArticleList = require('../bao').getArticleList;
 
 
 
-router.get('/', function(req, res) {
-  
+router.get('/', function (req, res) {
+
   var $page = req.body.page ? req.body.page : 1;
 
-  getArticleList(global.db,{page:$page}, function (err, result) {
-    if (err) {
-      console.log(err)
-      res.send({
-        status: 401,
-        message: '数据请求失败',
-      })
-      return;
-    }
-    global.app.locals.title = '博客';
-     res.render('index',{
-       articleList:result,
-     });
+  var splicePageData = new Promise(function (resolve, reject) {//查询 分页数据；
+    getArticleList(global.db, { page: $page }, function (err, result) {
+      if (err) {
+        reject(err);
+        return;
+      }
+      resolve(result);
+    })
   })
- 
+
+  var totalPageData = function (data) {//查询总页数
+    return (
+      new Promise(function (resolve, reject) {
+        const collection = db.collection('article');
+
+        collection.find().toArray(function (err, result) {
+          if (err) return reject(err);
+          resolve({
+            totalPage: (result.length % 10)==0 ? result.length/10 : (result.length/10)+1,
+            result: data
+          });
+        })
+      })
+    )
+  }
+
+  splicePageData.then(function (result) {
+
+    totalPageData(result);
+
+  }).then(function (data) {
+
+    global.app.locals.title = '博客';
+
+    res.render('index', {
+      articleList: data.result,
+      currentPage: $page,
+      totalPage: data.totalPage
+    })
+
+  }).catch(function (err) {
+    res.render('index', {
+      articleList: [],
+      currentPage: 1,
+      totalPage: 0
+    })
+  });
+
+
 });
 
 module.exports = router;
@@ -31,4 +65,3 @@ module.exports = router;
 
 
 
-  
