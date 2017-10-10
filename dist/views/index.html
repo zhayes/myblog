@@ -12,7 +12,7 @@
                 <ul class='panigation'>
                     <% for(var j=0; j< totalPage; j++ ){ %>
                     <li>
-                        <% if( currentPage==j ){ %>
+                        <% if( currentPage !=j ){ %>
                             <a href=<%=` /?page=${j+1}` %>><%= j+1 %></a>
                         <% }else{ %>
                             <a class='active' href=<%=` /?page=${j+1}` %>><%= j+1 %></a>
