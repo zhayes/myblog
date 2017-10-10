@@ -10,7 +10,7 @@
         <% } %>
         <div>
             <ul class='panigation'>
-                <% for(var j=0; j<totalPage; j++){ %>
+                <% for(var j=0; j<totalPage.length; j++){ %>
                 <li>
                     <a href= <%=`/?page${j+1}`> >
                         <%= j+1 %>
