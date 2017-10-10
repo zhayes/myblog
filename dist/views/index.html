@@ -1,6 +1,6 @@
 <% include commonHeader.html %>
-        <% for(var index=0; index< articleList.length; index++ ){ %>
-            <a class='articleListBox' href="/articleDetail.html?id=<%= articleList[index]._id %>" style='display:block;overflow:hidden;color:#fff'>
+    <% for(var index=0; index< articleList.length; index++ ){ %>
+        <a class='articleListBox' href="/articleDetail.html?id=<%= articleList[index]._id %>" style='display:block;overflow:hidden;color:#fff'>
                 <span class='indexListTime' style='float:right'><%= moment(articleList[index].time).format('YYYY/MM/DD HH:mm:ss') %></span>
                 <h3><%= articleList[index].title %></h3>
                 <p class='articleSwrap'>
@@ -8,15 +8,18 @@
                 </p>
             </a>
         <% } %>
-        <div>
-            <ul class='panigation'>
-                <% for(var j=0; j< totalPage; j++ ){ %>
-                <li>
-                    <a href= <%= `/?page=${j+1}` %> >
+            <div>
+                <ul class='panigation'>
+                    <% for(var j=0; j< totalPage; j++ ){ %>
+                    <li>
+                        <a 
+                            href="<%=` /?page=${j+1}` %>"
+                            class="<%= j==currentPage: 'active':'' %>"
+                        >
                         <%= j+1 %>
-                    </a>
-                </li>
-                <% } %>
-            </ul>
-        </div>
-<% include commonFooter.html %>           
+                        </a>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <% include commonFooter.html %>

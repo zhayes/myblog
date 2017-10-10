@@ -91,6 +91,10 @@ ul.panigation li a{
 	-o-border-radius:2px;
 }
 
+ul.panigation li a.active{
+	background-color: #11aefb;
+}
+
 ul.panigation li a:hover{
 	background-color: #11aefb;
 }
