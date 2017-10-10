@@ -24,19 +24,18 @@ router.get('/', function (req, res) {
       new Promise(function (resolve, reject) {
         const collection = db.collection('article');
 
-        collection.find().toArray(function (err, result) {
-          if (err) return reject(err);
-          resolve({
-            totalPage: (result.length % 10)==0 ? result.length/10 : (Math.floor(result.length/10))+1,
-            result: data
-          });
-        })
+        var total = collection.find().count();
+        
+        resolve({
+          totalPage: (result.length % 10) == 0 ? total / 10 : (Math.floor(total / 10)) + 1,
+          result: data
+        });
       })
     )
   }
 
   splicePageData.then(function (result) {
-   
+
     return totalPageData(result);
 
   }).then(function (data) {
