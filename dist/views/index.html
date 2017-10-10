@@ -29,7 +29,7 @@
                         <% } %>
                     <% } %>
 
-                    <% if( currentPage<(20-viewNum) ){ %>
+                    <% if( currentPage<(totalPage-viewNum) ){ %>
                     ...
                     <li>
                         <a href=<%=`/?page=${Number(currentPage)+1}` %>>&raquo;</a>
