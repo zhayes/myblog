@@ -10,28 +10,27 @@
         <% } %>
             <div>
                 <ul class='panigation'>
-                    <% if(currentPage>3){ %>
+                    <% if( currentPage>3 ){ %>
                     <li>
-                        <a href='/?page=1'>1</a>
+                        <a href=<%=`/?page=${currentPage-1}` %>><<</a>
                     </li>
-                        ...
                     <% } %>
 
-                    <% for(var j=0; j< 20; j++ ){ %>
-                    <% if( currentPage<(j+1+3) && currentPage>(j+1-3) ){ %>
-                    <li>
-                        <% if( currentPage !=(j+1) ){ %>
-                            <a href=<%=`/?page=${j+1}` %>><%= j+1 %></a>
-                        <% }else{ %>
-                            <a class='active' href=<%=` /?page=${j+1}` %>><%= j+1 %></a>
+                    <% for( var j=0; j< 20; j++ ){ %>
+                        <% if( currentPage<(j+1+3) && currentPage>(j+1-3) ){ %>
+                        <li>
+                            <% if( currentPage !=(j+1) ){ %>
+                                <a href=<%=`/?page=${j+1}` %>><%= j+1 %></a>
+                            <% }else{ %>
+                                <a class='active' href=<%=` /?page=${j+1}` %>><%= j+1 %></a>
+                            <% } %>
+                        </li>
                         <% } %>
-                    </li>
                     <% } %>
-                    <% } %>
-                    <% if(currentPage<(20-3)){ %>
-                        ...
-                    <li>
-                        <a href=<%=`/?page=${totalPage}` %>><%= totalPage %></a>
+
+                    <% if( currentPage<(20-3) ){ %>
+                     <li>
+                        <a href=<%=`/?page=${currentPage+1}` %>>>></a>
                     </li>
                     <% } %>
                 </ul>
