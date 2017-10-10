@@ -9,6 +9,14 @@
             </a>
         <% } %>
         <div>
-           <%- totalPage %>
+            <ul class='panigation'>
+                <% for(var j=0; j< totalPage; j++ ){ %>
+                <li>
+                    <a href= <%= `/?page${j+1}`> >
+                        <%= j+1 %>
+                    </a>
+                </li>
+                <% } %>
+            </ul>
         </div>
 <% include commonFooter.html %>           
