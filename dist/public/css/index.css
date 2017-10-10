@@ -96,7 +96,7 @@ ul.panigation li a.active{
 }
 
 ul.panigation li a:hover{
-	background-color: #11aefb;
+	background-color: #4489ab;
 }
 
 @media screen and (min-width:769px){
