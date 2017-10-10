@@ -5,7 +5,6 @@ module.exports = {
     getArticleList: function (db, data, callback) {
         const collection = db.collection('article');
         collection.find().sort({ time: -1 }).skip((data.page-1)*10).limit(10).toArray(function (err, result) {
-            console.log(callback);
             callback(err, result);
         })
     },
