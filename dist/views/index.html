@@ -33,6 +33,7 @@
                         <a href=<%=`/?page=${Number(currentPage)+1}` %>>&raquo;</a>
                     </li>
                     <% } %>
+                    <%= currentPage %> / <%= totalPage %> 页
                 </ul>
             </div>
             <% include commonFooter.html %>
